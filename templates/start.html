@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>CIT381 Tic Tac Toe</title>
+    <link rel="stylesheet" href="static/style.css">
+  </head>
+
+  <body>
+  <form action="/turn1" method="post" class="centered" style="width:450px;">
+    <div class="start-section">
+      <fieldset id="player1">
+        <legend>Player 1 - X:</legend>
+        <input type="radio" name="p1" value="h" checked="checked"> Human Player <br/>
+        <input type="radio" name="p1" value="1" > Rules-based Computer Player <br/>
+        <input type="radio" name="p1" value="2" > Random Computer Player <br/>
+        <input type="radio" name="p1" value="3" > Minimax Computer Player <br/>
+        <input type="radio" name="p1" value="4" > Minimax w/ Alpha Beta Pruning Computer Player <br/>
+      </fieldset>
+    </div>
+    <div class="start-section">
+      <fieldset id="player2">
+        <legend>Player 2 - O:</legend>
+        <input type="radio" name="p2" value="h" checked="checked"> Human Player <br/>
+        <input type="radio" name="p2" value="1" > Rules-based Computer Player <br/>
+        <input type="radio" name="p2" value="2" > Random Computer Player <br/>
+        <input type="radio" name="p2" value="3" > Minimax Computer Player <br/>
+        <input type="radio" name="p2" value="4" > Minimax w/ Alpha Beta Pruning Computer Player <br/>
+      </fieldset>
+      <input type="submit" value="start">
+    </div>
+  </form>
+
+  </body>
+</html>

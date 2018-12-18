@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>CIT381 Tic Tac Toe</title>
+    <link rel="stylesheet" href="static/style.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Tic Tac Toe</h1>
+      <div class="bottom-message">
+        {% if game.winnerVar == 1 %}
+          <div class="winner-message">X Wins!</div>
+          <a href="/?gameover=1">Play again?</a>
+        {% elif game.winnerVar == 2 %}
+          <div class="winner-message">O Wins!</div>
+          <a href="/?gameover=1">Play again?</a>
+        {% elif game.winnerVar == 0 and game.isBoardFull() %}
+          <div class="winner-message">Tie Game...</div>
+          <a href="/?gameover=1">Play again?</a>
+        {% endif %}
+      </div>
+      <table id="game-table" class="centered">
+        {% for row in game.board %}
+        {% set outer_loop = loop %}
+        <tr>
+          {% for column in row %}
+          <td>
+            {% if column==1 %}
+            <div class="game-cell-X">X
+            </div>
+            {% elif column==2 %}
+            <div class="game-cell-O">O
+            </div>
+            {% elif game.winnerVar == 0 and not game.isBoardFull() %}
+            <div class="game-cell-empty">
+              <form action="/" method="post">
+                <button name="play" id="playbutton{{outer_loop.index0*3+loop.index0}}" class="clickable" type="submit" value="{{outer_loop.index0*3+loop.index0}}"></button>
+              </form>
+            </div>
+            {% endif %}
+          </td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </table>
+      <a href="/start">Start Over</a>
+    </div>
+    {% if move > -1 %}
+      <script>
+        document.getElementById("playbutton{{move}}").click();
+      </script>
+    {% endif %}
+  </body>
+
+</html>
